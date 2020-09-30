@@ -29,10 +29,18 @@ class mileage extends React.Component {
     this.setState({ [name]: value });
   }
   handleSubmit() {
-    let noOFLitreFeul = this.state.totalKms / this.state.speedometervalue;
-    let FuelExpense ="Rs." + (noOFLitreFeul * this.state.petrolPrice).toFixed(2);
-    // let calc = this.state.totalKms + this.state.speedometervalue;
-    this.setState({ result: FuelExpense });
+    if (
+      this.state.totalKms &&
+      this.state.speedometervalue &&
+      this.state.petrolPrice
+    ) {
+      let noOFLitreFeul = this.state.totalKms / this.state.speedometervalue;
+      let FuelExpense =
+        "Rs." + (noOFLitreFeul * this.state.petrolPrice).toFixed(2);
+      this.setState({ result: FuelExpense });
+    } else {
+      this.setState({ result: "Check Values" });
+    }
   }
   render() {
     return (
@@ -40,17 +48,17 @@ class mileage extends React.Component {
         <form autoComplete="off">
           <div className="mileage__form">
             <label>Total Kms Travelled </label>
-            <input type="text" name="totalKms" onChange={this.handleChange} />
+            <input type="number" name="totalKms" onChange={this.handleChange} />
             <label>Speed O Meter kms / Per Litre</label>
             <input
-              type="text"
+              type="number"
               name="speedometervalue"
               onChange={this.handleChange}
             />
 
             <label>Petrol / Diesel Price Today </label>
             <input
-              type="text"
+              type="number"
               name="petrolPrice"
               onChange={this.handleChange}
             />

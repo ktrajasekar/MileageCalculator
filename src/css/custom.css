@@ -15,6 +15,13 @@ body {
 input {
   font-family: var(--brand-font);
 }
+header{
+  display: grid;
+  grid-template-columns: 20% 70%;
+  align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 .app__container {
   margin: 0 auto;
   max-width: 700px;
@@ -45,4 +52,5 @@ input {
 
 .mileage__results{
   margin: 20px 0;
+  font-weight: 700;
 }
