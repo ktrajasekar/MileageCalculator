@@ -4,7 +4,7 @@ function Header() {
   return (
     <header>
       <div>
-      <img src={mileageLogo} />
+      <img src={mileageLogo} alt="Mileage Calculator" />
       </div>
       <div>
         <h2 className="text-center">Mileage Calculator </h2>
